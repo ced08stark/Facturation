@@ -61,7 +61,7 @@ namespace Facturation
         private void Button1_Click(object sender, EventArgs e)
         {
             int index = listViewProduct.FocusedItem.Index;
-            manager.DeleteProduct(index);
+            manager.DeleteProduct(Program.CurrentClient, products[index]);
             listViewProduct.Items.Clear();
             products = manager.GetAllProduct();
             foreach (var p in products)

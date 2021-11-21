@@ -58,10 +58,7 @@ namespace Facturation.BO
             return list;
         }
 
-        public void DeleteProduct(int index)
-        {
-            products.RemoveAt(index);
-        }
+       
 
       
 

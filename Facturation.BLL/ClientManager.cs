@@ -12,6 +12,7 @@ namespace Facturation.BLL
     {
         Client client;
         public List<Client> list;
+        public List<Product> products;
         // public List<Product> GetProducts;
         private ClientRepository Repository;
 
@@ -19,6 +20,7 @@ namespace Facturation.BLL
         {
             Repository = new ClientRepository();
             client = new Client();
+            products = new List<Product>();
 
 
         }
@@ -46,9 +48,16 @@ namespace Facturation.BLL
             return client.GetProduct();
         }
 
-        public void DeleteProduct(int index)
+        public void DeleteProduct(Client user, Product product)
         {
-            client.DeleteProduct(index);
+            for(int i=0; i<user.products.Count; i++)
+            {
+                if(user.products[i] == product)
+                {
+                    products.Remove(product);
+                }
+
+            }
             Repository.Save();
         }
 

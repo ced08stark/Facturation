@@ -42,7 +42,7 @@ namespace Facturation
             
             List<ClientL> lists = new List<ClientL>();
             for (int i = 0; i < list.Count; i++)
-                if (i == 0)
+                if (i == list.Count-1)
                     lists.Add(new Facturation.List.ClientL(list[i].Nom, list[i].Email, list[i].Telephone, list[i].Ville, manager.Calcule(Program.CurrentProducts)));
 
             this.reportViewer1.LocalReport.DataSources.Add(
@@ -52,7 +52,7 @@ namespace Facturation
             int k =0;
             for(int i=0; i<list.Count; i++)
             {
-                while(i == 0 && k < list[i].products.Count)
+                while(i == list.Count-1 && k < list[list.Count-1].products.Count)
                 {
                     prod.Add(new Facturation.List.ProductL(list[i].products[k].NomProduct, list[i].products[k].PriceUnit, list[i].products[k].QuantiteProduct));
                     k++;
